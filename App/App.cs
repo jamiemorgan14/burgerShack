@@ -27,6 +27,7 @@ namespace burgerShack.Models
     public void Run()
     {
       InitializeData();
+      string activeEntree;
       System.Console.WriteLine("Welcome to SlackDonald's");
       Menu.ForEach(i =>
       {
@@ -45,7 +46,9 @@ Please select a menu item or view the (s)ides
       int userSelection;
       if (Int32.TryParse(userInput, out userSelection) && Int32.Parse(userInput) <= Menu.Count)
       {
-        System.Console.WriteLine("Valid input");
+        System.Console.WriteLine("Select (y) to make that a meal by adding fries and drink to your order?");
+        string mealChoice = Console.ReadLine();
+        customerSelectMeal(mealChoice);
       }
       else if (userInput == "s")
       {
@@ -65,6 +68,23 @@ Please select a menu item or view the (s)ides
       {
         System.Console.WriteLine(sideItemIndex++ + ": " + s.Name + " - $" + s.Price.ToString("n2"));
       });
+    }
+
+    private void customerSelectMeal(string mealChoice)
+    {
+      if (mealChoice == "y")
+      {
+        makeMeal();
+      }
+      else
+      {
+        System.Console.WriteLine("Your order of _______ is ready. Your total is _______");
+      }
+    }
+
+    private void makeMeal()
+    {
+      // int total = Entree.Price + 2.35
     }
 
     public App()

@@ -1,3 +1,5 @@
+using System;
+
 namespace burgerShack.Models
 {
   class Entree : Food
@@ -7,5 +9,6 @@ namespace burgerShack.Models
     {
       ComboNumber = comboNumber;
     }
+
   }
 }
